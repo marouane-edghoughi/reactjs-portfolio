@@ -1,0 +1,12 @@
+.hero-title {
+  font-size: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #F3F2F3;
+}
+
+@media screen and (max-width: 960px) {
+  .hero-title {
+    font-size: 40px;
+  }
+}
