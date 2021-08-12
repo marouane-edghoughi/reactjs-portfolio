@@ -1,13 +1,16 @@
 import React from 'react';
 import { useTitle } from '../Components/useTitle';
-import ParticlesAnimation from '../Components/ParticlesAnimation';
-import Content from '../Components/Content';
+
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Typical from 'react-typical';
 import { AiFillHeart } from 'react-icons/ai';
 import { GrReactjs } from 'react-icons/gr';
 import { HiOutlineDownload } from 'react-icons/hi';
 import { SiTelegram } from 'react-icons/si';
+
+import Content from '../Components/Content';
+import ParticlesAnimation from '../Components/ParticlesAnimation';
 
 
 function HomePage(props) {
@@ -24,9 +27,21 @@ function HomePage(props) {
                     <Col sm={12}>
                         {props.title && <h1 className="hero-title">{props.title}</h1>}
                     </Col>
-                    {/*<Col sm={12} className="d-flex">
-                        <p className="curly-braces px-3">{'{'}</p> {props.job_title && <p>{props.job_title}</p>} <p className="curly-braces px-3">{'}'}</p>
-                    </Col>*/}
+                    <Col sm={12} className="d-flex">
+                        <p className="px-3">I'm a </p>
+                        <Typical
+                            loop={Infinity}
+                            wrapper="p"
+                            steps={[
+                                'Software engineer',
+                                3000,
+                                'Creative programmer',
+                                3000,
+                                'Java enthusiast',
+                                3000
+                            ]}
+                        />
+                    </Col>
                     <Col sm={12} className="mt-5">
                         <button className="home-resume">
                             Resume

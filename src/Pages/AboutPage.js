@@ -1,10 +1,12 @@
 import React from 'react';
-import Content from '../Components/Content';
 import { Link } from 'react-router-dom';
+
+import { HiOutlineDownload } from 'react-icons/hi';
+
+import { useTitle } from '../Components/useTitle';
+import Content from '../Components/Content';
 import Hero from '../Components/Hero/Hero';
 import Footer from '../Components/Footer/Footer';
-import { useTitle } from '../Components/useTitle';
-import { HiOutlineDownload } from 'react-icons/hi';
 
 function AboutPage(props) {
 

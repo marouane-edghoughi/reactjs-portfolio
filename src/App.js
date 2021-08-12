@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import Container from 'react-bootstrap/Container';
-import LoadingScreen from './Components/Splash/LoadingScreen';
 import { useSpring } from 'react-spring';
+import Scrollbars from 'react-custom-scrollbars';
+
+import LoadingScreen from './Components/Splash/LoadingScreen';
 import Navbar from './Components/Navbar/Navbar';
 import HomePage from './Pages/HomePage';
 import ProjectsPage from './Pages/ProjectsPage';
@@ -11,23 +14,15 @@ import ContactPage from './Pages/ContactPage';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
 import PageNotFound from './Components/NotFound/PageNotFound';
 import RestoreScroll from './Components/RestoreScroll';
-import Scrollbars from 'react-custom-scrollbars';
 
 
 function App() {
 
   const state = {
     title: "Marouane Edghoughi",
-    headerLinks: [
-      {title: 'Home', path: '/'},
-      {title: 'Projects', path: '/projects'},
-      {title: 'About', path: '/about'},
-      {title: 'Contact', path: '/contact'}
-    ],
     home: {
       greetings: "Hi, I'm",
-      title: "Marouane Edghoughi",
-      job_title: "I'm a "
+      title: "Marouane Edghoughi"
     },
     projects: {
       title: "Check out my projects!"
