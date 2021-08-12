@@ -223,7 +223,7 @@ h2 {
 .message-field {
   min-height: 100px;
   max-height: 400px;
-  white-space: pre;
+  white-space: pre-line;
 }
 
 .error {
