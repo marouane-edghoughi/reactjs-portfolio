@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import { useSpring } from 'react-spring';
-import Scrollbars from 'react-custom-scrollbars';
 
 import LoadingScreen from './Components/Splash/LoadingScreen';
 import Navbar from './Components/Navbar/Navbar';
@@ -71,9 +70,7 @@ function App() {
 
         :
 
-        <Scrollbars
-          style={{ height: window.innerHeight, backgroundColor: 'rgba(35, 49, 86, 0.8)' }}
-        >
+        <>
           <Container className="theme p-0" fluid={true}>
               {/*   Restore scroll to top after each route because React doesn't do that by default   */}
             <RestoreScroll />
@@ -89,7 +86,7 @@ function App() {
               <Route component={PageNotFound} />
             </Switch>
           </Container>
-        </Scrollbars>
+        </>
       }
     </Router>
   );
