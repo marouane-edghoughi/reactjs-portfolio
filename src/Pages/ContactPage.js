@@ -12,7 +12,7 @@ import { useTitle } from '../Components/useTitle';
 
 function ContactPage (props) {
 
-    useTitle('Contact | Marouane Edghoughi')
+    useTitle('Contact | Marouane Edghoughi');
 
     const {handleChange, handleSubmit, values, errors, isSending} =  useForm(validate);
 

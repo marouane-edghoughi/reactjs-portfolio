@@ -41,6 +41,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Custom Scrollbar */
+
 ::-webkit-scrollbar {
   width: 15px;
 }
@@ -59,6 +61,7 @@ body {
   background: #7d7e7c;
 }
 
+
 .link {
   color: #2086e7;
 }
@@ -72,24 +75,12 @@ h2 {
   color: #F3F2F3;
 }
 
-/* Custom scrollbars */
-.track-vertical {
-  height: 100%;
-  background-color: #066dcd;
-}
-.thumb-vertical {
-  background-color: #686b6e;
-  height: 100%;
-}
-
 /* Homepage */
 
 .space {
   position: relative;
   overflow: hidden;
 }
-
-
 
 .curly-braces {
   background-image: -webkit-linear-gradient(#384BEB, #8600DA);
@@ -100,10 +91,10 @@ h2 {
   font-weight: 600;
 }
 
-.home-resume {
+.download-resume {
   color: #F3F2F3;
   background: #384BEB;
-  padding: 10px 32px;
+  padding: 8px 26px;
   font-weight: 500;
   border-radius: 24px;
   outline: none;
@@ -113,25 +104,25 @@ h2 {
   margin-right: 50px;
 }
 
-.home-resume:hover {
+.download-resume:hover {
   transition: all .4s ease;
   -webkit-transition: all .4s ease;
   background-color: #2d3cbc;
 }
 
-.home-resume:focus {
+.download-resume:focus {
   outline:0;
 }
 
-.home-resume .download {
+.download-resume .download-icon {
   margin-left: 10px;
   font-size: 20px;
 }
 
-.home-contact {
+.see-projects {
   color: #0f0f0f;
   background: #F3F2F3;
-  padding: 10px 32px;
+  padding: 8px 26px;
   font-weight: 500;
   border-radius: 24px;
   outline: none;
@@ -141,19 +132,23 @@ h2 {
   margin-right: 50px;
 }
 
-.home-contact:hover {
+.see-projects:hover {
   transition: all .4s ease;
   -webkit-transition: all .4s ease;
   background-color: #dbdadb;
 }
 
-.home-contact:focus {
+.see-projects:focus {
   outline:0;
 }
 
-.home-contact .contact-icon {
+.see-projects .eye-icon {
   margin-left: 10px;
   font-size: 20px;
+}
+
+.contact-me {
+  display: inline-block;
 }
 
 .fixed-bottom {
@@ -161,21 +156,22 @@ h2 {
 }
 
 @media screen and (max-width: 960px) {
-  .home-resume {
+  .download-resume {
     padding: 7px 18px;
-    margin-right: 20px;
+    margin-right: 2rem;
   }
 
-  .home-resume .download {
+  .download-resume .download-icon {
     margin-left: 8px;
     font-size: 18px;
   }
 
-  .home-contact {
+  .see-projects {
     padding: 7px 18px;
+    margin-right: 2rem;
   }
 
-  .home-contact .contact-icon {
+  .see-projects .eye-icon {
     margin-left: 8px;
     font-size: 18px;
   }
@@ -191,38 +187,11 @@ h2 {
   border-radius: 10px;
 }
 
-.about-hr {
+.line-break {
   color: #2d2d2d;
   background-color: #2d2d2d;
   height: 1px;
   border-radius: 5px;
-}
-
-.resume {
-  color: #F3F2F3;
-  background: #384BEB;
-  padding: 10px 32px;
-  font-weight: 500;
-  border-radius: 24px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.resume:hover {
-  transition: all .4s ease;
-  -webkit-transition: all .4s ease;
-  background-color: #2d3cbc;
-}
-
-.resume:focus {
-  outline:0;
-}
-
-.resume .download {
-  margin-left: 10px;
-  font-size: 20px;
 }
 
 

@@ -75,14 +75,14 @@ function App() {
               {/*   Restore scroll to top after each route because React doesn't do that by default   */}
             <RestoreScroll />
             <Navbar />
-              {/*  The Switch statement tells React to render the 404 page if the requested path does not exist   */}
+              {/*  Switch enables React to load one Component at a time  */}
             <Switch>
               <Route path="/" exact render={() => <HomePage greetings={state.home.greetings} title={state.home.title} job_title={state.home.job_title} />}/>
               <Route path="/projects" render={() => <ProjectsPage title={state.projects.title} />}/>
               <Route path="/about" render={() => <AboutPage title={state.about.title} />}/>
               <Route path="/contact" render={() => <ContactPage title={state.contact.title} />}/>
               <Route path="/privacy-policy" render={() => <PrivacyPolicy title={state.privacy_policy.title} />}/>
-                {/*  404 Page  */}
+                {/*  Tells React to render the 404 page if the requested path does not exist  */}
               <Route component={PageNotFound} />
             </Switch>
           </Container>

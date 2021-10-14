@@ -4,10 +4,9 @@ import { useTitle } from '../Components/useTitle';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Typical from 'react-typical';
-import { AiFillHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineEye } from 'react-icons/ai';
 import { GrReactjs } from 'react-icons/gr';
 import { HiOutlineDownload } from 'react-icons/hi';
-import { SiTelegram } from 'react-icons/si';
 
 import Content from '../Components/Content';
 import ParticlesAnimation from '../Components/ParticlesAnimation';
@@ -43,15 +42,20 @@ function HomePage(props) {
                         />
                     </Col>
                     <Col sm={12} className="mt-5">
-                        <button className="home-resume">
+                        <button className="download-resume">
                             Resume
-                            <HiOutlineDownload className="download" />
+                            <HiOutlineDownload className="download-icon" />
                         </button>
-                        <Link to="/contact">
-                            <button className="home-contact">
-                                Contact
-                                <SiTelegram className="contact-icon" />
+                        <Link to='/projects'>
+                            <button className="see-projects">
+                                See Projects
+                                <AiOutlineEye className="eye-icon" />
                             </button>
+                        </Link>
+                        <Link to="/contact">
+                            <p className="contact-me">
+                                Contact me
+                            </p>
                         </Link>
                     </Col>
                     <div className="text-center fixed-bottom">
