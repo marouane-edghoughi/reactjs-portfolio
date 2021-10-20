@@ -1,20 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Content from '../Components/Content';
 import Form from 'react-bootstrap/Form';
-import { Row, Col, Alert } from 'react-bootstrap';
+import { 
+    Row,
+    Col, 
+    Alert,
+    Tooltip,
+    OverlayTrigger
+} from 'react-bootstrap';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { BsArrowRight } from 'react-icons/bs';
-import { FiArrowRight } from 'react-icons/fi';
+import { FaRegCopy } from 'react-icons/fa';
 import Hero from '../Components/Hero/Hero';
 import Footer from '../Components/Footer/Footer';
 import validate from '../Components/validateInfo';
 import useForm from "../Components/useForm";
 import { useTitle } from '../Components/useTitle';
 
+import { useSpring } from 'react-spring';
+
 function ContactPage (props) {
 
     useTitle('Contact | Marouane Edghoughi');
 
     const {handleChange, handleSubmit, values, errors, isSending} =  useForm(validate);
+
+    const [isRevealed, setIsRevealed] = useState(false);
+
+    const [fade, setFade] = useState(false);
+
+    const revealEmail = () => {
+        setIsRevealed(true);
+        setFade(true);
+        setTimeout(() => {
+            setFade(false);
+        }, 1000);
+    }
+
+    const revealEffect = useSpring({
+        opacity: fade ? 1 : 0
+    });
+
+    const [isCopied, setIsCopied] = useState(false);
+
 
     const AlertMessageSent = () => (
         <Alert className="mt-4" variant="success">
@@ -96,12 +124,59 @@ function ContactPage (props) {
                 </Row>
 
                 <Row className="justify-content-center">
-                    <Col className="">
-                        <span>You can simply </span>
-                        <a className="contact-email" href="mailto:marouane@edghoughi.com" target="_blank" rel="noopener noreferrer">
-                            <span className="ml-1">send me an email </span>
-                            <FiArrowRight />
-                        </a>
+                    <Col>
+                        <div style={isRevealed ? null : {cursor: 'pointer', textAlign: 'center'}} className="email-area" onClick={() => revealEmail()} >
+                            {
+                                isRevealed ?
+
+                                <>
+                                    <Row className="align-items-center" >
+                                        <Col md={11} xs={9}>
+                                            <a className="contact-email" href="mailto:marouane@edghoughi.com" target="_blank" rel="noopener noreferrer" >
+                                                <span>marouane@edghoughi.com</span>
+                                            </a>
+                                        </Col>
+                                        <Col md={1} xs={3}>
+                                            <OverlayTrigger
+                                                overlay={
+                                                    isCopied ?
+
+                                                        <Tooltip id={`tooltip-email-copied`}>
+                                                            <span>Copied!</span>
+                                                        </Tooltip>
+
+                                                    :
+
+                                                        <Tooltip id={`tooltip-copy-email`}>
+                                                            <span>Copy Email to Clipboard</span>
+                                                        </Tooltip>
+                                                }
+                                            >
+                                                <CopyToClipboard
+                                                    text="marouane@edghoughi.com"
+                                                    onCopy={() => setIsCopied(true)}
+                                                >
+                                                    <FaRegCopy 
+                                                        className="copy-email"
+                                                        alt="Copy Email to Clipboard"
+                                                        onMouseLeave={() => {
+                                                                setTimeout(() => {
+                                                                    setIsCopied(false);
+                                                                }, 500)
+                                                            }
+                                                        }
+                                                    />
+                                                </CopyToClipboard>
+                                            </OverlayTrigger>
+                                        </Col>
+                                    </Row>
+                                </>
+
+                                :
+
+                                    <span className="email-area-text" style={revealEffect}>Click here to reveal my email address</span>
+                            }
+                        </div>
                     </Col>
                 </Row>
             </Content>

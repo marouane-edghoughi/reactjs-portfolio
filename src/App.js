@@ -20,7 +20,7 @@ function App() {
   const state = {
     title: "Marouane Edghoughi",
     home: {
-      greetings: "Hi, I'm",
+      greetings: "Hello 👋🏻, I'm",
       title: "Marouane Edghoughi"
     },
     projects: {

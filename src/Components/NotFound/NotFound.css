@@ -1,0 +1,22 @@
+.back-to-home {
+    color: #F3F2F3;
+    background-color: transparent;
+    padding: 8px 26px;
+    font-weight: 500;
+    border: 1px solid #F3F2F3;
+    border-radius: 24px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.back-to-home:hover {
+    color: #0f0f0f;
+    background-color: #F3F2F3;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
+
+.back-to-home:focus {
+    outline:0;
+}

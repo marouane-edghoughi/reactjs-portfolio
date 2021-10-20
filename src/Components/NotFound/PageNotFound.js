@@ -6,6 +6,8 @@ import { GrReactjs } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
 import { useTitle } from '../useTitle';
 
+import './NotFound.css';
+
 function PageNotFound() {
 
     useTitle('Not Found | Marouane Edghoughi')
@@ -22,7 +24,7 @@ function PageNotFound() {
                     </Col>
                     <Col>
                         <Link to="/">
-                            <button className="return">
+                            <button className="back-to-home">
                                 Return to home page
                             </button>
                         </Link>

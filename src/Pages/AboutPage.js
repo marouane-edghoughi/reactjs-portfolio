@@ -17,7 +17,7 @@ function AboutPage(props) {
             <Hero title={props.title} />
             <Content>
                 <div className="about-wrapper">
-                    <p>Hi there! I'm Marouane Edghoughi, a Moroccan software engineer, new graduate from the Higher School of Technology Casablanca. My projects include backend development, RESTful API design and frontend development. I always focus on writing clean, elegant and efficient code.</p>
+                    <p>Hi there! I'm Marouane Edghoughi, a Moroccan software engineer and new graduate from the Higher School of Technology Casablanca. My projects include backend development, RESTful API design and frontend development. I always focus on writing clean, elegant and efficient code.</p>
                     <p>In my spare time, I like to practice my computer science skills and learn new things such as foreign languages.</p>
                     <p>I'm always down to hear about new projects, so feel free to <Link className="link" to="/contact">drop me a line</Link>.</p>
                     <hr className="line-break" />

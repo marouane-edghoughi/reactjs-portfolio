@@ -26,22 +26,26 @@ function HomePage(props) {
                     <Col sm={12}>
                         {props.title && <h1 className="hero-title">{props.title}</h1>}
                     </Col>
-                    <Col sm={12} className="d-flex">
-                        <p className="px-3">I'm a </p>
-                        <Typical
-                            loop={Infinity}
-                            wrapper="p"
-                            steps={[
-                                'Software engineer',
-                                3000,
-                                'Creative programmer',
-                                3000,
-                                'Java enthusiast',
-                                3000
-                            ]}
-                        />
+                    <Col sm={12} className="d-flex job-title">
+                        <p className="curly-braces noselect"> {'{'} </p>
+                        <p className="px-4 noselect">I'm a </p>
+                        <span className="typical noselect" >
+                            <Typical
+                                loop={Infinity}
+                                wrapper="p"
+                                steps={[
+                                    'Software Engineer',
+                                    3000,
+                                    'Creative Programmer',
+                                    3000,
+                                    'Java Enthusiast',
+                                    3000
+                                ]}
+                            />
+                        </span>
+                        <p className="curly-braces noselect px-4"> {'}'} </p>
                     </Col>
-                    <Col sm={12} className="mt-5">
+                    <Col sm={12} className="mt-3">
                         <button className="download-resume">
                             Resume
                             <HiOutlineDownload className="download-icon" />

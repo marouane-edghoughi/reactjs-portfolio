@@ -82,13 +82,31 @@ h2 {
   overflow: hidden;
 }
 
+.job-title {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+
 .curly-braces {
   background-image: -webkit-linear-gradient(#384BEB, #8600DA);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 20px;
+  font-size: 1.8rem;
   font-weight: 600;
+}
+
+.typical {
+  width: 10rem;
 }
 
 .download-resume {
@@ -149,6 +167,17 @@ h2 {
 
 .contact-me {
   display: inline-block;
+  font-size: 0.95rem;
+  color: #9C9D9B;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.contact-me:hover {
+  font-size: 1rem;
+  text-underline-offset: 3px;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
 }
 
 .fixed-bottom {
@@ -174,6 +203,10 @@ h2 {
   .see-projects .eye-icon {
     margin-left: 8px;
     font-size: 18px;
+  }
+
+  .contact-me {
+    margin-top: 1rem;
   }
 }
 
@@ -231,16 +264,6 @@ h2 {
   border-radius: 5px;
 }
 
-.contact-email {
-  font-size: 20px;
-  color: #9C9D9B;
-}
-
-.contact-email:hover {
-  text-decoration: none;
-  color: #7d7e7c;
-}
-
 
 .send {
   color: #F3F2F3;
@@ -274,31 +297,50 @@ h2 {
 }
 
 
+.email-area {
+  padding: 1.5rem;
+  background-color: #1b1b1b;
+  border: 1px #333333;
+  border-style: dashed;
+  border-radius: 5px;
+}
 
+.email-area-text {
+  font-size: 1rem;
+}
 
-.return {
-  color: #F3F2F3;
-  border: 2px solid #F3F2F3;
-  background: transparent;
-  padding: 10px 32px;
-  font-weight: 500;
-  border-radius: 24px;
-  outline: none;
-  cursor: pointer;
+.email-area:hover .email-area-text {
+  font-size: 1.03rem;
+  color: #bdbdbd;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+}
+
+.contact-email {
+  font-size: 1.3rem;
+  color: #9C9D9B;
+}
+
+.contact-email:hover {
   text-decoration: none;
+  color: #7d7e7c;
 }
 
-.return:hover {
-  color: #0f0f0f;
-  background-color: #F3F2F3;
-  transition: all .4s ease;
-  -webkit-transition: all .4s ease;
+@media screen and (max-width: 750px) {
+  .email-area {
+    padding: 1.2rem;
+  }
+  .contact-email {
+    font-size: 1rem;
+  }
 }
 
-.return:focus {
-  outline:0;
+.copy-email {
+  float: right;
+  font-size: 1.1rem;
+  cursor: pointer;
 }
 
-.return .home {
-  margin-left: 10px;
+.copy-email:hover {
+  color: #7d7e7c;
 }
