@@ -36,7 +36,7 @@ function Footer() {
                                     </Tooltip>
                                 }
                             >
-                            <AiFillGithub className="social-media" />
+                                <AiFillGithub className="social-media" />
                             </OverlayTrigger>
                         </a>
                     </Col>
