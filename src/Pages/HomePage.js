@@ -1,13 +1,11 @@
-import React from 'react';
-import { useTitle } from '../Components/useTitle';
-
-import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
 import Typical from 'react-typical';
 import { AiFillHeart, AiOutlineEye } from 'react-icons/ai';
 import { GrReactjs } from 'react-icons/gr';
 import { HiOutlineDownload } from 'react-icons/hi';
 
+import { useTitle } from '../Components/useTitle';
 import Content from '../Components/Content';
 import ParticlesAnimation from '../Components/ParticlesAnimation';
 
@@ -26,10 +24,10 @@ function HomePage(props) {
                     <Col sm={12}>
                         {props.title && <h1 className="hero-title">{props.title}</h1>}
                     </Col>
-                    <Col sm={12} className="d-flex job-title">
-                        <p className="curly-braces noselect"> {'{'} </p>
-                        <p className="px-4 noselect">I'm a </p>
-                        <span className="typical noselect" >
+                    <Col sm={12} className="d-flex job-title noselect">
+                        <p className="curly-braces"> {'{'} </p>
+                        <p className="px-4">I'm a </p>
+                        <span className="typical" >
                             <Typical
                                 loop={Infinity}
                                 wrapper="p"
@@ -43,7 +41,7 @@ function HomePage(props) {
                                 ]}
                             />
                         </span>
-                        <p className="curly-braces noselect px-4"> {'}'} </p>
+                        <p className="curly-braces px-4"> {'}'} </p>
                     </Col>
                     <Col sm={12} className="mt-3">
                         <button className="download-resume">
