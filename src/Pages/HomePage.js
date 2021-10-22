@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Row, Col } from 'react-bootstrap';
+import { 
+    Row,
+    Col,
+    Spinner
+} from 'react-bootstrap';
 import Typical from 'react-typical';
 import { AiFillHeart, AiOutlineEye } from 'react-icons/ai';
 import { GrReactjs } from 'react-icons/gr';
@@ -8,11 +12,14 @@ import { HiOutlineDownload } from 'react-icons/hi';
 import { useTitle } from '../Components/useTitle';
 import Content from '../Components/Content';
 import ParticlesAnimation from '../Components/ParticlesAnimation';
+import useResume from '../Components/useResume';
 
 
 function HomePage(props) {
 
     useTitle('Marouane Edghoughi | Software Engineer')
+
+    const {downloadResume, isDownloading} = useResume();
 
     return(
         <div className="space">
@@ -44,9 +51,17 @@ function HomePage(props) {
                         <p className="curly-braces px-4"> {'}'} </p>
                     </Col>
                     <Col sm={12} className="mt-3">
-                        <button className="download-resume">
+                        <button onClick={() => downloadResume()} className="download-resume" disabled={isDownloading}>
                             Resume
-                            <HiOutlineDownload className="download-icon" />
+                            {isDownloading ?
+
+                                <Spinner className="download-spinner" animation="border" variant="light" />
+
+                            :
+
+                                <HiOutlineDownload className="download-icon" />
+                                
+                            }
                         </button>
                         <Link to='/projects'>
                             <button className="see-projects">
