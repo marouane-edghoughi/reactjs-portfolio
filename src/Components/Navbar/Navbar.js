@@ -1,11 +1,22 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Logo from '../../assets/images/logo.svg';
 import { Link } from 'react-router-dom';
-import { Row, Col } from 'react-bootstrap';
+
 import Hamburger from 'hamburger-react';
-import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
-import { MdEmail } from 'react-icons/md';
+
+import LogoImage from '../../assets/images/logo.svg';
+import {
+    NavWrapper,
+    Logo,
+    HamburgerWrapper,
+    NavMenu,
+    NavLinks,
+    NavLink,
+    NavSocial,
+    Github,
+    Linkedin,
+    Email
+} from './Navbar.styled';
 
 import './Navbar.css';
 
@@ -42,9 +53,14 @@ function Navbar() {
 
     return(
         <nav className="sticky-top">
-            <div className="nav-wrapper">
-                <Link to="/"><img className="logo" src={Logo} alt="Marouane Edghoughi" /></Link>
-                <span className="menu-icon">
+            <NavWrapper>
+                <Link to="/">
+                    <Logo
+                        src={LogoImage}
+                        alt="Marouane Edghoughi"
+                    />
+                </Link>
+                <HamburgerWrapper>
                     <Hamburger
                         toggled={isExpanded}
                         toggle={expandMenu}
@@ -53,36 +69,28 @@ function Navbar() {
                         color="#F3F2F3"
                         rounded
                     />
-                </span>
-            </div>
-            <div className={isExpanded ? "nav-menu active" : "nav-menu"}>
-                <div className="nav-links">
-                    <Link className="nav-link" to="/" onClick={RestoreMenuState} >Home</Link>
-                    <Link className="nav-link" to="/projects" onClick={RestoreMenuState} >Projects</Link>
-                    <Link className="nav-link" to="/about" onClick={RestoreMenuState} >About</Link>
-                    <Link className="nav-link" to="/contact" onClick={RestoreMenuState} >Contact</Link>
-                </div>
+                </HamburgerWrapper>
+            </NavWrapper>
+            <NavMenu className={isExpanded ? "nav-menu active" : "nav-menu"}>
+                <NavLinks>
+                    <NavLink to="/" onClick={RestoreMenuState} >Home</NavLink>
+                    <NavLink to="/projects" onClick={RestoreMenuState} >Projects</NavLink>
+                    <NavLink to="/about" onClick={RestoreMenuState} >About</NavLink>
+                    <NavLink to="/contact" onClick={RestoreMenuState} >Contact</NavLink>
+                </NavLinks>
 
-                <div className="nav-social-row">
-                    <Row className="m-3">
-                        <Col xs="auto">
-                            <a href="https://github.com/marouane-edghoughi/" target="_blank" rel="noopener noreferrer" >
-                                <AiFillGithub className="nav-social-icon" />
-                            </a>
-                        </Col>
-                        <Col xs="auto">
-                            <a href="https://www.linkedin.com/in/marouane-edghoughi/" target="_blank" rel="noopener noreferrer" >
-                                <AiFillLinkedin className="nav-social-icon" />
-                            </a>
-                        </Col>
-                        <Col xs="auto">
-                            <a href="mailto:marouane@edghoughi.com" target="_blank" rel="noopener noreferrer" >
-                                <MdEmail className="nav-social-icon" />
-                            </a>
-                        </Col>
-                    </Row>
-                </div>
-            </div>
+                <NavSocial>
+                    <a href="https://github.com/marouane-edghoughi/" target="_blank" rel="noopener noreferrer" >
+                        <Github />
+                    </a>
+                    <a href="https://www.linkedin.com/in/marouane-edghoughi/" target="_blank" rel="noopener noreferrer" >
+                        <Linkedin />
+                    </a>
+                    <a href="mailto:marouane@edghoughi.com" target="_blank" rel="noopener noreferrer" >
+                        <Email />
+                    </a>
+                </NavSocial>
+            </NavMenu>
         </nav>
     );
 }
