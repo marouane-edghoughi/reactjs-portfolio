@@ -120,6 +120,7 @@ function ContactForm() {
                         <FormControl
                             name="email"
                             type="text"
+                            inputmode='email'
                             value={values.email}
                             onChange={handleChange}
                             onBlur={handleBlur}
