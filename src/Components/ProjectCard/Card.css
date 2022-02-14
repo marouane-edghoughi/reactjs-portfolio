@@ -1,0 +1,51 @@
+.p-card {
+    margin: 20px;
+    left: 0;
+}
+
+.img-wrapper {
+    display: flex;
+    border-radius: 25px;
+    width: 18rem;
+    height: 18rem;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.img-responsive {
+    flex: none;
+    height: 100%;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+}
+
+.p-card-info {
+    padding: 20px;
+    height: 18rem;
+    width: 18rem;
+    position: absolute;
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 6, 8, 0.8);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+
+.p-card-title {
+    
+}
+
+.p-card-subtitle {
+    font-size: 16px;
+    margin: 0px;
+}
+
+.p-card-links {
+    margin-top: 30%;
+}
