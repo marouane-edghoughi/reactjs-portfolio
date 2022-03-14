@@ -46,51 +46,45 @@ function App() {
 
   const [fade, setFade] = useState(false);
 
-    useEffect(() => {
-      setIsLoading(true)
-      setFade(true)
-      setTimeout(() => {
-        setFade(false)
-      }, 3600)
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 4000)
-    }, [])
+  useEffect(() => {
+    setIsLoading(true)
+    setFade(true)
+    setTimeout(() => {
+      setFade(false)
+    }, 3600)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 4000)
+  }, [])
 
-    const splashStyle = useSpring({
-      opacity: fade ? 1 : 0
-    });
+  const splashStyle = useSpring({
+    opacity: fade ? 1 : 0
+  });
 
-
+  if (isLoading) {
+    return (
+      <LoadingScreen loading={isLoading} style={splashStyle} />
+    );
+  }
 
   return (
     <Router>
-      {
-        isLoading ?
+      <Container className="theme p-0" fluid={true}>
+          {/*   Restore scroll to top after each route because React doesn't do that by default   */}
+        <RestoreScroll />
+        <Navbar />
+          {/*  Routes enables React to load one Component at a time  */}
+        <Routes>
+          <Route path='/' exact element={<HomePage greetings={state.home.greetings} title={state.home.title} job_title={state.home.job_title} />}/>
+          <Route path='/projects' element={<ProjectsPage title={state.projects.title} />}/>
+          <Route path='/about' element={<AboutPage title={state.about.title} />}/>
+          <Route path='/contact' element={<ContactPage title={state.contact.title} />}/>
+          <Route path='/privacy-policy' element={<PrivacyPolicy title={state.privacy_policy.title} />}/>
 
-          <LoadingScreen loading={isLoading} style={splashStyle} />
-
-        :
-
-        <>
-          <Container className="theme p-0" fluid={true}>
-              {/*   Restore scroll to top after each route because React doesn't do that by default   */}
-            <RestoreScroll />
-            <Navbar />
-              {/*  Routes enables React to load one Component at a time  */}
-            <Routes>
-              <Route path='/' exact element={<HomePage greetings={state.home.greetings} title={state.home.title} job_title={state.home.job_title} />}/>
-              <Route path='/projects' element={<ProjectsPage title={state.projects.title} />}/>
-              <Route path='/about' element={<AboutPage title={state.about.title} />}/>
-              <Route path='/contact' element={<ContactPage title={state.contact.title} />}/>
-              <Route path='/privacy-policy' element={<PrivacyPolicy title={state.privacy_policy.title} />}/>
-
-                {/*  Render the 404 page if the requested path does not exist  */}
-              <Route path='*' element={<PageNotFound />} />
-            </Routes>
-          </Container>
-        </>
-      }
+            {/*  Render the 404 page if the requested path does not exist  */}
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
+      </Container>
     </Router>
   );
 }
