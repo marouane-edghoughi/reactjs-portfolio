@@ -9,8 +9,8 @@ import {
 } from './ProjectCard.styled';
 
 import ReactJsPortfolio from '../../assets/images/portfolio-project.jpg';
+import SlackClone from '../../assets/images/slack-clone.jpg';
 import SpringDemo from '../../assets/images/springdemo.png';
-import AngularDemo from '../../assets/images/angulardemo.jfif';
 import JavaDemo from '../../assets/images/javademo.png';
 
 function ProjectCard() {
@@ -18,7 +18,7 @@ function ProjectCard() {
     const [cardData, setCardData] = useState([
         {
             title: 'ReactJS Portfolio',
-            subtitle: 'I built this portfolio using ReactJS, Formik, Styled Components.',
+            subtitle: 'Simple and beautiful looking software engineer portfolio built using React Js, Styled Components and Express Js.',
             imgSrc: ReactJsPortfolio,
             githubLink: 'https://github.com/marouane-edghoughi/reactjs-portfolio',
             previewLink: 'https://www.edghoughi.com/'
@@ -31,11 +31,11 @@ function ProjectCard() {
             previewLink: '#'
         },
         {
-            title: 'Angular Demo',
-            subtitle: 'This is a demo of an Angular app.',
-            imgSrc: AngularDemo,
-            githubLink: '#',
-            previewLink: '#'
+            title: 'Slack Clone',
+            subtitle: 'Slack Clone (Chat Server) built with ReactJS, Redux, Styled Components and Firebase.',
+            imgSrc: SlackClone,
+            githubLink: 'https://github.com/marouane-edghoughi/slack-clone',
+            previewLink: 'https://slack-clone-2022.web.app/'
         },
         {
             title: 'Java Demo',
