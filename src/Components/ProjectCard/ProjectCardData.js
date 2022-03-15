@@ -1,46 +1,53 @@
-import React from 'react';
-import { useSpring, animated } from 'react-spring';
-
-import { Row, Col, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { useSpring } from 'react-spring';
 
 import {
+    ProjectDataWrapper,
     ProjectTitle,
+    ProjectDescription,
+    ProjectLinks,
+    ProjectButton,
     Github,
     PreviewIcon
 } from './ProjectCard.styled';
 
-
-import './Card.css';
-
 function ProjectCardData(props) {
 
-    const style = useSpring({opacity: 1, from: {opacity: 0}});
+    const [toggle, setToggle] = useState(false);
+
+    const toggleStyles = () => {
+        setToggle(!toggle);
+    }
+
+    const styles = useSpring({ opacity: toggle ? 1 : 0 });
 
     return(
-        <animated.div className="p-card-info">
+        <ProjectDataWrapper
+            style={styles}
+            onMouseEnter={toggleStyles}
+            onMouseLeave={toggleStyles}
+        >
             <ProjectTitle>
                 {props.title}
             </ProjectTitle>
-            <p className="p-card-subtitle">{props.subtitle}</p>
-            <Row className="p-card-links">
-                <Col xs={6}>
-                    <a href={props.glink} target="_blank" rel="noopener noreferrer">
-                        <Button variant="light" block>
-                            <Github />
-                            View code
-                        </Button>
-                    </a>
-                </Col>
-                <Col xs={6}>
-                    <a href={props.plink} target="_blank" rel="noopener noreferrer">
-                        <Button variant="light" block>
-                            <PreviewIcon />
-                            Preview
-                        </Button>
-                    </a>
-                </Col>
-            </Row>
-        </animated.div>
+            <ProjectDescription>
+                {props.subtitle}
+            </ProjectDescription>
+            <ProjectLinks>
+                <a href={props.glink} target="_blank" rel="noopener noreferrer">
+                    <ProjectButton variant="light">
+                        <Github />
+                        View code
+                    </ProjectButton>
+                </a>
+                <a href={props.plink} target="_blank" rel="noopener noreferrer">
+                    <ProjectButton variant="light">
+                        <PreviewIcon />
+                        Preview
+                    </ProjectButton>
+                </a>
+            </ProjectLinks>
+        </ProjectDataWrapper>
     );
 }
 
