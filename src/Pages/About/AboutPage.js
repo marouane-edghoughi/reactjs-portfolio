@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { InternalLink } from '../../theme/globalStyles';
+import {
+    InternalLink,
+    ExternalLink
+} from '../../theme/globalStyles';
 
 import { useTitle } from '../../Components/useTitle';
 import Hero from '../../Components/Hero/Hero';
@@ -22,8 +24,8 @@ function AboutPage(props) {
             <Hero title={props.title} />
             <Content>
                 <AboutMe>
-                    <p>Hi there! I'm Marouane Edghoughi, a Moroccan software engineer and new graduate from the Higher School of Technology Casablanca. My projects include backend development, RESTful API design and frontend development. I always focus on writing clean, elegant and efficient code.</p>
-                    <p>In my spare time, I like to practice my computer science skills and learn new things such as foreign languages.</p>
+                    <p>Hi there! I'm Marouane Edghoughi, a Moroccan software engineer born and raised in <ExternalLink href='https://en.wikipedia.org/wiki/Casablanca' target="_blank" rel="noopener noreferrer">Casablanca</ExternalLink>. I graduated from the Higher School of Technology Casablanca with University Diploma in Technology in Software Engineering and Network Administration. My projects include backend development, RESTful API design and frontend development. I always focus on writing clean, elegant and efficient code.</p>
+                    <p>In my spare time, I like to refine both my software engineering and communication skills.</p>
                     <p>I'm always down to hear about new projects, so feel free to <InternalLink to="/contact">drop me a line</InternalLink>.</p>
                     
                     <LineBreak />
