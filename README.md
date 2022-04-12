@@ -33,7 +33,7 @@ I build this project in order to showcase my personal projects.
 
 ## Setup
 
-To view this project visit the [live demo](https://www.edghoughi.com/) or clone this repository:
+To view this project visit the [live demo](https://www.edghoughi.com/) or by cloning this repository:
 
 ```
 git clone https://github.com/marouane-edghoughi/reactjs-portfolio.git
