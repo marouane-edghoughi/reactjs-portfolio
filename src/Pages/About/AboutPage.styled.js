@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import { AiOutlineEye } from 'react-icons/ai';
+
+import { FiDownload } from 'react-icons/fi';
+import {
+    Spinner
+} from 'react-bootstrap';
 
 export const AboutMe = styled.div`
     width: 100%;
@@ -13,7 +17,7 @@ export const LineBreak = styled.hr`
     border-radius: 5px;
 `;
 
-export const ViewResumeButton = styled.button`
+export const DownloadResumeButton = styled.button`
     color: #F3F2F3;
     background: #384BEB;
     padding: 8px 26px;
@@ -40,7 +44,11 @@ export const ViewResumeButton = styled.button`
     }
 `;
 
-export const EyeIcon = styled(AiOutlineEye)`
+export const DownloadIcon = styled(FiDownload)`
     margin-left: 10px;
     font-size: 1.3rem;
+`;
+
+export const DownloadSpinner = styled(Spinner)`
+    margin-left: 10px;
 `;

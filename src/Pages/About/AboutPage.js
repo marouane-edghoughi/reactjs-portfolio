@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     InternalLink,
     ExternalLink
 } from '../../theme/globalStyles';
+
+import useContentful from '../../hooks/useContentful';
+import useDownload from '../../hooks/useDownload';
 
 import { useTitle } from '../../Components/useTitle';
 import Hero from '../../Components/Hero/Hero';
@@ -10,14 +13,43 @@ import Content from '../../Components/Content';
 import {
     AboutMe,
     LineBreak,
-    ViewResumeButton,
-    EyeIcon
+    DownloadResumeButton,
+    DownloadIcon,
+    DownloadSpinner
 } from './AboutPage.styled';
 import Footer from '../../Components/Footer/Footer';
 
 function AboutPage(props) {
 
     useTitle('About | Marouane Edghoughi')
+
+    const { getAuthor } = useContentful()
+
+    const [dev, setDev] = useState({})
+
+    const fetchDev = () => {
+        getAuthor().then((response) => {
+            setDev(response)
+        })
+    }
+    
+    useEffect(() => {
+        fetchDev()
+    }, [])
+    
+    const { downloadResume } = useDownload();
+    
+    const [downloading, setDownloading] = useState(false)
+
+    const downloadCV = () => {
+        setDownloading(true)
+        downloadResume(dev.resume?.fileName, dev.resume?.url).then(() => {
+            setDownloading(false)
+        }).catch((error) => {
+            console.log(error)
+            setDownloading(false)
+        })
+    }
 
     return(
         <>
@@ -30,16 +62,17 @@ function AboutPage(props) {
                     
                     <LineBreak />
 
-                    <a 
-                        href="https://drive.google.com/file/d/1Hjw79RcR58Ayw70F51Hl-Y4IupoCYglG/view?usp=sharing"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <DownloadResumeButton
+                        disabled={(dev === null ? true : false) || downloading}
+                        onClick={() => downloadCV()}
                     >
-                        <ViewResumeButton>
-                            Resume
-                            <EyeIcon />
-                        </ViewResumeButton>
-                    </a>
+                        Resume
+                        {downloading ? (
+                                <DownloadSpinner animation="border" size="sm"/>
+                            ) : (
+                                <DownloadIcon />
+                        )}
+                    </DownloadResumeButton>
                 </AboutMe>
             </Content>
             <Footer/>

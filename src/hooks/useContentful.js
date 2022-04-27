@@ -1,9 +1,10 @@
 import { createClient } from 'contentful';
+import config from '../privatekeys';
 
 const useContentful = () => {
     const client = createClient({
-        space: 'q5eipxbf3ysq',
-        accessToken: 'iUMIzTABeA3JBejuycXI3ZJOkx4A9SSnv_wz8d96ZQA',
+        space: config.SPACE,
+        accessToken: config.ACCESS_TOKEN,
         host: 'cdn.contentful.com'
     })
 
@@ -31,7 +32,29 @@ const useContentful = () => {
         }
     }
 
-    return { getProjects }
+    const getAuthor = () => {
+        try {
+            // Change the getEntry parameter to your entry ID
+            const author = client.getEntry('2mxFgFILnIudZ5HEkQXjwY')
+                .then((entry) => {
+                    const avatar = entry.fields.avatar
+                    const resume = entry.fields.resume.fields.file
+
+                    return {
+                        ...entry.fields,
+                        avatar,
+                        resume
+                    }
+
+                })
+
+            return author
+        } catch(error) {
+            console.log('Error fetching author: ' + error)
+        }
+    }
+
+    return { getProjects, getAuthor }
 }
 
 export default useContentful
