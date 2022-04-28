@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -51,9 +51,7 @@ function Footer() {
                                     </Tooltip>
                                 }
                             >
-                                <forwardRef>
-                                    <Github />
-                                </forwardRef>
+                                <Github />
                             </OverlayTrigger>
                         </a>
                     </Col>
@@ -68,9 +66,7 @@ function Footer() {
                                     </Tooltip>
                                 }
                             >
-                                <forwardRef>
-                                    <Linkedin />
-                                </forwardRef>
+                                <Linkedin />
                             </OverlayTrigger>
                         </a>
                     </Col>
@@ -85,9 +81,7 @@ function Footer() {
                                     </Tooltip>
                                 }
                             >
-                                <forwardRef>
-                                    <Email />
-                                </forwardRef>
+                                <Email />
                             </OverlayTrigger>
                         </a>
                     </Col>
