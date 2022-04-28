@@ -37,7 +37,7 @@ const useContentful = () => {
             // Change the getEntry parameter to your entry ID
             const author = client.getEntry('2mxFgFILnIudZ5HEkQXjwY')
                 .then((entry) => {
-                    const avatar = entry.fields.avatar
+                    const avatar = entry.fields.avatar.fields.file
                     const resume = entry.fields.resume.fields.file
 
                     return {
